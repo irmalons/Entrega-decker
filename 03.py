@@ -14,24 +14,24 @@ def is_anybody_inside(critical, tid):
 def task(common, tid, critical):
    a = 0
    for i in range(100):
-      print(f’{tid}−{i}: Non−critical Section’)
+      print(f'{tid}−{i}: Non−critical Section')
       a += 1
-      print(f’{tid}−{i}: End of non−critical Section’)
+      print(f'{tid}−{i}: End of non−critical Section')
       critical[tid] = 1
       while is_anybody_inside(critical, tid):
          critical[tid] = 0
-         print(f’{tid}−{i}: Giving up’)
+         print(f'{tid}−{i}: Giving up')
          critical[tid] = 1
-      print(f’{tid}−{i}: Critical section’)
+      print(f'{tid}−{i}: Critical section')
       v = common.value + 1
-      print(f’{tid}−{i}: Inside critical section’)
+      print(f'{tid}−{i}: Inside critical section')
       common.value = v
-      print(f’{tid}−{i}: End of critical section’)
+      print(f'{tid}−{i}: End of critical section')
       critical[tid] = 0
 def main():
    lp = []
-   common = Value(’i’, 0)
-   critical = Array(’i’, [0]*N)
+   common = Value('i', 0)
+   critical = Array('i', [0]*N)
    for tid in range(N):
       lp.append(Process(target=task, args=(common, tid, critical)))
    print (f"Valor inicial del contador {common.value}")
