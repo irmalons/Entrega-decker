@@ -35,7 +35,7 @@ def task(common, tid, critical, turn):
 def main():
     lp = []
     common = Value('i', 0)
-    critical = Array('i, [0]*N)
+    critical = Array('i', [0]*N)
     turn = Value('i', 0)
     for tid in range(N):
         lp.append(Process(target=task, args=(common, tid, critical, turn)))
