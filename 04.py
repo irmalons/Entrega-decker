@@ -16,7 +16,7 @@ def task(common, tid, critical, turn):
     for i in range(10):
         print(f'{tid}−{i}: Non−critical Section')
         a += 1
-        print(f'tid}−{i}: End of non−critical Section')
+        print(f'{tid}−{i}: End of non−critical Section')
         critical[tid] = 1
         while is_anybody_inside(critical, tid):
             critical[tid] = 0
